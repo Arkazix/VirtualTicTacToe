@@ -12,6 +12,8 @@ mp_draw = mp.solutions.drawing_utils
 WIN_WIDTH = capture.get(3)
 WIN_HEIGHT = capture.get(4)
 
+tictactoe = TicTacToe(0.8 * WIN_HEIGHT, WIN_WIDTH, WIN_HEIGHT)
+
 run = True
 finger_press = True
 
@@ -39,7 +41,7 @@ while run:
             if dist >= 0.1:
                 finger_press = False
     
-    # TODOE : draw board
+    tictactoe.draw(img)
 
     img = cv2.flip(img, 1)
     img = cv2.resize(img, (1080, 720))
