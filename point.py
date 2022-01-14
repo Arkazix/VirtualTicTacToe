@@ -3,8 +3,8 @@
 class Point:
 
     def __init__(self, x, y) -> None:
-        self.x = int(x)
-        self.y = int(y)
+        self.x = x
+        self.y = y
 
     def __sum__(self, __o: object):
         return Point(self.x + __o.x, self.y + __o.y)

@@ -1,4 +1,3 @@
-from dis import dis
 import cv2
 import mediapipe as mp
 from point import Point
@@ -37,12 +36,12 @@ while run:
                 # TODOE : check if fingers is in a tictactoe square
                 print("--!--")
                 finger_press = True
-            elif dist >= 0.1:
+            if dist >= 0.1:
                 finger_press = False
     
     # TODOE : draw board
 
-    img = cv2.flip(1)
+    img = cv2.flip(img, 1)
     img = cv2.resize(img, (1080, 720))
     cv2.imshow("Tic Tac Toe", img)
 
