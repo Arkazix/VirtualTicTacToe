@@ -12,7 +12,7 @@ mp_draw = mp.solutions.drawing_utils
 WIN_WIDTH = capture.get(3)
 WIN_HEIGHT = capture.get(4)
 
-tictactoe = TicTacToe(0.8 * WIN_HEIGHT, WIN_WIDTH, WIN_HEIGHT)
+tictactoe = TicTacToe(0.9 * WIN_HEIGHT, WIN_WIDTH, WIN_HEIGHT)
 
 run = True
 finger_press = True
@@ -44,7 +44,7 @@ while run:
     tictactoe.draw(img)
 
     img = cv2.flip(img, 1)
-    img = cv2.resize(img, (1080, 720))
+    img= cv2.resize(img, (1080, 720))
     cv2.imshow("Tic Tac Toe", img)
 
     key = cv2.waitKey(1)
