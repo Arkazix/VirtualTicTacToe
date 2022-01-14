@@ -15,7 +15,9 @@ class TicTacToe:
         if size > min(WIN_WIDTH, WIN_HEIGHT):
             size = min(WIN_WIDTH, WIN_HEIGHT)
 
-    def draw(self, img):
+        self.lines_list = self.get_lines()
+
+    def get_lines(self):
         margin = ((self.wsize[0] - self.size) / 2,
                   (self.wsize[1] - self.size) / 2)
 
@@ -23,25 +25,28 @@ class TicTacToe:
                   margin[1],
                   margin[0] + self.size / 3,
                   margin[1] + self.size)
-        
+
         l2 = Line(margin[0] + 2 * self.size / 3,
                   margin[1],
                   margin[0] + 2 * self.size / 3,
                   margin[1] + self.size)
-        
+
         l3 = Line(margin[0],
                   margin[1] + self.size / 3,
                   margin[0] + self.size,
                   margin[1] + self.size / 3)
-        
+
         l4 = Line(margin[0],
                   margin[1] + 2 * self.size / 3,
                   margin[0] + self.size,
                   margin[1] + 2 * self.size / 3)
 
-        line_list = [l1, l2, l3, l4]
-        self.draw_line(line_list, img)
-        
-    def draw_line(self, line_list, img):
-        for line in line_list:
-            cv2.line(img=img, pt1=line.p1, pt2=line.p2, color=BLACK, thickness=2, lineType=8)
+        return [l1, l2, l3, l4]
+
+    def draw_line(self, img):
+        for line in self.lines_list:
+            cv2.line(img=img, pt1=line.p1, pt2=line.p2,
+                     color=BLACK, thickness=2, lineType=8)
+
+    def is_in(self, x1, x2):
+        pass

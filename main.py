@@ -23,6 +23,8 @@ while run:
     rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(image=rgb_img)
 
+    tictactoe.draw_line(img)
+
     if results.multi_hand_landmarks:
         for hand in results.multi_hand_landmarks:
             mp_draw.draw_landmarks(img, hand, mp_hands.HAND_CONNECTIONS)
@@ -40,11 +42,9 @@ while run:
                 finger_press = True
             if dist >= 0.1:
                 finger_press = False
-    
-    tictactoe.draw(img)
 
     img = cv2.flip(img, 1)
-    img= cv2.resize(img, (1080, 720))
+    img = cv2.resize(img, (1080, 720))
     cv2.imshow("Tic Tac Toe", img)
 
     key = cv2.waitKey(1)
