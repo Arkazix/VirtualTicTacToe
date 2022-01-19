@@ -1,5 +1,3 @@
-# A point class
-
 class Point:
 
     def __init__(self, x, y) -> None:
